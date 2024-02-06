@@ -17,6 +17,7 @@ export interface Env {
 
 // @ts-ignore
 import home from './home.html';
+import { makeBadge } from './utils';
 
 function handleHome() {
 	return new Response(home, {
@@ -52,9 +53,9 @@ async function handleVisit(searchParams: URLSearchParams, env: Env) {
 		await env.DB.put(page, String(count));
 	}
 
-	return new Response(JSON.stringify({ visits: count }), {
+	return new Response(makeBadge(count), {
 		headers: {
-			'Content-Type': 'application/json',
+			'Content-Type': 'image/svg+xml;charset=utf-8',
 		},
 	});
 }
@@ -72,3 +73,9 @@ export default {
 		}
 	},
 };
+
+/*
+사용법 : 
+npm run start가 아니라 wrangler dev --remote 이걸로 시작해야 로컬에서 실행시 preview에 데이터가 저장됨.
+완성후 npm run deploy를 사용하면 프로그램 완성
+*/
