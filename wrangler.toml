@@ -1,6 +1,9 @@
 name = "workers-visitors"
 main = "src/index.ts"
 compatibility_date = "2024-01-29"
+kv_namespaces = [
+    { binding = "DB", id = "066ca029f31046bca77f6d284e226ffd", preview_id = "7597114961644c8d96346d3c2a4ac979" }
+]
 
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Note: Use secrets to store sensitive data.
